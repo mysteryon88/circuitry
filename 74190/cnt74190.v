@@ -22,16 +22,22 @@ module cnt74190(
 			max_min <= 0;
 		end
 		else if (!Up_Down) begin
-			max_min <= 0;
-			Q <= Q + 1;
-			if (Q == 8)	max_min <= 1;
+			
 			if (Q == 9) Q <= 0;
+			else Q <= Q + 1;
+
+			if (Q == 8)	max_min <= 1;
+			else max_min <= 0;
+
 		end
 		else begin 
-			max_min <= 0;
-			Q <= Q - 1;
+		
+			if (Q == 0) Q <= 9;
+			else Q <= Q - 1;
+			
 			if (Q == 1) max_min <= 1;
-			if (Q == 0) Q <= 10;
+			else max_min <= 0;
+			
 		end
 	 end
 	 
